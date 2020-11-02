@@ -5,9 +5,9 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/samigmuseyibli/gin-gonic-blog/api/auth"
-	"github.com/samigmuseyibli/gin-gonic-blog/api/models"
-	"github.com/samigmuseyibli/gin-gonic-blog/api/utils/formaterror"
+	"github.com/gunturbudikurniawan/Show_sleep_merchant/api/auth"
+	"github.com/gunturbudikurniawan/Show_sleep_merchant/api/models"
+	"github.com/gunturbudikurniawan/Show_sleep_merchant/api/utils/formaterror"
 )
 
 func (server *Server) AddToWishlist(c *gin.Context) {

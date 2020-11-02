@@ -1,19 +1,16 @@
 package controllers
 
 import (
-	"io"
-	"net/http"
-
 	"github.com/gunturbudikurniawan/Show_sleep_merchant/api/middlewares"
 )
 
-func hello(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hello")
-}
+// func hello(w http.ResponseWriter, r *http.Request) {
+// 	io.WriteString(w, "Hello")
+// }
 func (s *Server) initializeRoutes() {
-	http.HandleFunc("/", hello)
 	v1 := s.Router.Group("/api/v1")
 	{
+		v1.GET("/", s.Test)
 
 		// Login Route
 		v1.POST("/login", s.Login)
