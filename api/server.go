@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/gunturbudikurniawan/Show_sleep_merchant/api/controllers"
 	"github.com/joho/godotenv"
-	"github.com/samigmuseyibli/gin-gonic-blog/api/controllers"
 )
 
 var server = controllers.Server{}
