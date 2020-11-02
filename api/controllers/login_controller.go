@@ -14,10 +14,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func (server *Server) Test(c *gin.Context) {
-	fmt.Println("Hello There")
-}
-
 func (server *Server) Login(c *gin.Context) {
 
 	//clear previous error if any
