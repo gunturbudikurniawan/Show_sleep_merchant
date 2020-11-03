@@ -9,7 +9,7 @@ func (s *Server) initializeRoutes() {
 	{
 
 		// Login Route
-		v1.POST("/login", s.Login)
+		v1.POST("/login", s.testUsers)
 
 		// Reset password:
 		v1.POST("/password/forgot", s.ForgotPassword)

@@ -19,6 +19,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func (server *Server) testUsers(c *gin.Context) {
+
+	c.JSON(http.StatusOK, gin.H{
+		"status":   http.StatusOK,
+		"response": "hello Guntur",
+	})
+}
+
 func (server *Server) CreateUser(c *gin.Context) {
 
 	//clear previous error if any
