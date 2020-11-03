@@ -4,7 +4,6 @@ import (
 	"errors"
 	"html"
 	"log"
-	"os"
 	"strings"
 	"time"
 
@@ -21,7 +20,6 @@ type User struct {
 	Phone      string    `gorm:"size:100;" json:"phone"`
 	AvatarPath string    `gorm:"size:255;null;" json:"avatar_path"`
 	CreatedAt  time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
-	UpdatedAt  time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
 }
 
 func (u *User) BeforeSave() error {
@@ -37,21 +35,6 @@ func (u *User) Prepare() {
 	u.Username = html.EscapeString(strings.TrimSpace(u.Username))
 	u.Email = html.EscapeString(strings.TrimSpace(u.Email))
 	u.CreatedAt = time.Now()
-	u.UpdatedAt = time.Now()
-}
-
-func (u *User) AfterFind() (err error) {
-	if err != nil {
-		return err
-	}
-	if u.AvatarPath != "" {
-		u.AvatarPath = os.Getenv("DO_SPACES_URL") + u.AvatarPath
-	}
-
-	//u.Password = ""
-	//dont return the user password
-	//u.Password = ""
-	return nil
 }
 
 func (u *User) Validate(action string) map[string]string {
@@ -168,17 +151,15 @@ func (u *User) UpdateAUser(db *gorm.DB, uid uint32) (*User, error) {
 
 		db = db.Debug().Model(&User{}).Where("id = ?", uid).Take(&User{}).UpdateColumns(
 			map[string]interface{}{
-				"password":  u.Password,
-				"email":     u.Email,
-				"update_at": time.Now(),
+				"password": u.Password,
+				"email":    u.Email,
 			},
 		)
 	}
 
 	db = db.Debug().Model(&User{}).Where("id = ?", uid).Take(&User{}).UpdateColumns(
 		map[string]interface{}{
-			"email":     u.Email,
-			"update_at": time.Now(),
+			"email": u.Email,
 		},
 	)
 	if db.Error != nil {
@@ -197,7 +178,6 @@ func (u *User) UpdateAUserAvatar(db *gorm.DB, uid uint32) (*User, error) {
 	db = db.Debug().Model(&User{}).Where("id = ?", uid).Take(&User{}).UpdateColumns(
 		map[string]interface{}{
 			"avatar_path": u.AvatarPath,
-			"update_at":   time.Now(),
 		},
 	)
 	if db.Error != nil {
@@ -231,8 +211,7 @@ func (u *User) UpdatePassword(db *gorm.DB) error {
 
 	db = db.Debug().Model(&User{}).Where("email = ?", u.Email).Take(&User{}).UpdateColumns(
 		map[string]interface{}{
-			"password":  u.Password,
-			"update_at": time.Now(),
+			"password": u.Password,
 		},
 	)
 	if db.Error != nil {

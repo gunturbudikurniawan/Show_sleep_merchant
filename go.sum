@@ -52,6 +52,7 @@ github.com/google/uuid v1.0.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+
 github.com/gorilla/css v1.0.0 h1:BQqNyPTi50JCFMTw/b67hByjMVXZRwGha6wxVGkeihY=
 github.com/gorilla/css v1.0.0/go.mod h1:Dn721qIggHpt4+EFCcTLTU/vk5ySda2ReITrtgBl60c=
 github.com/gorilla/mux v1.7.4/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
+github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
 github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
 github.com/gunturbudikurniawan/show_sleep v0.0.0-20201028064548-8e987a883828 h1:blkvDT9FimVxyzYZffbz2o+MhnUb7itxjMDMrtpxMh8=
 github.com/gunturbudikurniawan/show_sleep v0.0.0-20201028064548-8e987a883828/go.mod h1:OPFqCupC1Vy+9YEdpEMN/TFZnrTO1svGMQpMhSLO+zE=

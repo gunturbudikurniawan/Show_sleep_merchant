@@ -4,13 +4,9 @@ import (
 	"github.com/gunturbudikurniawan/Show_sleep_merchant/api/middlewares"
 )
 
-// func hello(w http.ResponseWriter, r *http.Request) {
-// 	io.WriteString(w, "Hello")
-// }
 func (s *Server) initializeRoutes() {
 	v1 := s.Router.Group("/api/v1")
 	{
-		v1.GET("/", s.Test)
 
 		// Login Route
 		v1.POST("/login", s.Login)
@@ -18,6 +14,9 @@ func (s *Server) initializeRoutes() {
 		// Reset password:
 		v1.POST("/password/forgot", s.ForgotPassword)
 		v1.POST("/password/reset", s.ResetPassword)
+
+		// merchants
+		v1.POST("/merchants", s.CreateMerchants)
 
 		//Users routes
 		v1.POST("/users", s.CreateUser)
