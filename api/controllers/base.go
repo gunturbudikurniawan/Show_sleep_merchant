@@ -44,6 +44,9 @@ func (server *Server) Initialize(Dbdriver, DbUser, DbPassword, DbPort, DbHost, D
 		&models.Like{},
 		&models.Comment{},
 		&models.Subscribers1{},
+		&models.SavedOrder{},
+		&models.Sales1{},
+		&models.Onlinesales1{},
 	)
 
 	server.Router = gin.Default()
