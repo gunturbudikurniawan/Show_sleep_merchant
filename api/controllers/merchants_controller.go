@@ -281,10 +281,7 @@ func (server *Server) ShowSleep(c *gin.Context) {
 		models.Sales1
 	}
 	result := []ShowSleep{}
-	err := server.DB.Table("server").
-		Select("server.* , company.*").
-		Joins("left join company on server.company = company.id ").
-		Scan(&result).Error
+	err := server.DB.Debug()
 
 	if err != nil {
 		// logserver.Debugf("Error when looking up servers, the error is '%v'", err)

@@ -57,8 +57,8 @@ func (server *Server) CreateUser(c *gin.Context) {
 	errorMessages := user.Validate("")
 	if len(errorMessages) > 0 {
 		errList = errorMessages
-		c.JSON(http.StatusUnprocessableEntity, gin.H{
-			"status": http.StatusUnprocessableEntity,
+		c.JSON(http.StatusOK, gin.H{
+			"status": http.StatusOK,
 			"error":  errList,
 		})
 		return
