@@ -4,7 +4,7 @@ curl -i -X POST -H "Content-Type: application/json" -d '{
 "email":"budikurniawan238@gmail.com",
 "phone":"081290858473",
 "password":"payphone16"
-}' http://localhost:8089/api/v1/users
+}' https://artaka.herokuapp.com/api/v1/users
 
 // Login
 curl -i -X POST -H "Content-Type: application/json" -d '{"email":"budikurniawan238@gmail.com","password":"payphone16"}' http://localhost:8080/login
@@ -99,62 +99,11 @@ Created_Date time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"create_dtm"`
 type Onlinesales1 struct {
 ID uint32 `gorm:"primary_key;auto_increment" json:"id"`
 CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"create_dtm"`
-SalesId string `gorm:"size:50;" json:"sales_id"`
 UserId string `gorm:"size:50;" json:"user_id"`
-OutletId string `gorm:"size:50;" json:"outlet_id"`
-CustomerId string `gorm:"size:50;" json:"customer_id"`
-Customer string `gorm:"size:50;" json:"customer"`
-Products string `gorm:"not null;" json:"products,"`
-Subtotal uint64 `gorm:json:"subtotal,"`
-TotalDiskon uint64 `gorm:json:"total_diskon,"`
-TotalTax uint64 `gorm:json:"total_tax,"`
-TotalBill uint64 `gorm:json:"total_bill,"`
-PaymentMethod string `gorm:"size:50;not null;" json:"payment_method"`
-PaymentAccount string `gorm:"size:50;not null;" json:"payment_account"`
-PaymentDueDate string `gorm:"size:50;not null;" json:"payment_due_date"`
-TotalPayment uint64 `gorm:json:"total_payment,"`
-Expedition string `gorm:"size:50;not null;" json:"expedition"`
-Service string `gorm:"size:50;not null;" json:"service"`
-Weight uint64 `gorm:json:"weight,"`
-DeliveryCost uint64 `gorm:json:"delivery_cost,"`
-Notes string `gorm:"size:100;" json:"notes"`
-TotalBuyCost uint64 `gorm:json:"total_buy_cost,"`
-PaymentDate string `gorm:"size:100;" json:"payment_date"`
-RewardId string `gorm:"size:50;not null;" json:"reward_id"`
-PointsRedeem uint64 `gorm:json:"points_redeem,"`
-OrderStatus string `gorm:"size:50;not null;" json:"order_status"`
-ShipmentNumber string `gorm:"size:50;not null;" json:"shipment_number"`
 }
-type Sales1 struct {
-ID uint32 `gorm:"primary_key;auto_increment" json:"id"`
-CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"create_dtm"`
-SalesId string `gorm:"size:50;" json:"sales_id"`
-UserId string `gorm:"size:50;" json:"user_id"`
-OutletId string `gorm:"size:50;" json:"outlet_id"`
-SalesType string `gorm:"size:50;" json:"sales_type"`
-CustomerId string `gorm:"size:50;" json:"customer_id"`
-Products string `gorm:"not null;" json:"products,"`
-Subtotal uint64 `gorm:json:"subtotal,"`
-TotalDiskon uint64 `gorm:json:"total_diskon,"`
-TotalBill uint64 `gorm:json:"total_bill,"`
-PaymentMethod string `gorm:"size:50;not null;" json:"payment_method"`
-PaymentDueDate string `gorm:"size:50;not null;" json:"payment_due_date"`
-TotalPayment uint64 `gorm:json:"total_payment,"`
-Exchange uint64 `gorm:json:"exchange,"`
-Notes string `gorm:"size:100;" json:"notes"`
-TotalBuyCost uint64 `gorm:json:"total_buy_cost,"`
-PaymentDate string `gorm:"size:100;" json:"payment_date"`
-TotalTax uint64 `gorm:json:"total_tax,"`
-RewardId string `gorm:"size:50;not null;" json:"reward_id"`
-PointsRedeem uint64 `gorm:json:"points_redeem,"`
-}
+
 type SavedOrder struct {
 ID uint32 `gorm:"primary_key;auto_increment" json:"id"`
 UserId string `gorm:"size:50;not null;" json:"user_id"`
-OutletId string `gorm:"size:50;not null;" json:"outlet_id"`
-Saved_orders_id string `gorm:"size:50;" json:"saved_orders_id"`
-Name string `gorm:"size:100;" json:"name"`
-Phone string `gorm:"size:20;null;" json:"phone"`
-TableId string `gorm:"size:20;null;" json:"table_id"`
 CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"create_dtm"`
 }
