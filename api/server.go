@@ -34,7 +34,7 @@ func Run() {
 	// This is for testing, when done, do well to comment
 	seed.Load(server.DB)
 
-	apiPort := ":" + os.Getenv("API_PORT")
+	apiPort := ":" + os.Getenv("PORT")
 	fmt.Printf("Listening to port %s", apiPort)
 	if apiPort == "" {
 		apiPort = ":8089"
