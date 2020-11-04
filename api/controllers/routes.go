@@ -1,6 +1,9 @@
 package controllers
 
 import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
 	"github.com/gunturbudikurniawan/Show_sleep_merchant/api/middlewares"
 )
 
@@ -8,9 +11,12 @@ import (
 // 	io.WriteString(w, "Hello")
 // }
 func (s *Server) initializeRoutes() {
+
 	v1 := s.Router.Group("/api/v1")
 	{
-
+		v1.GET("/", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "home.tmpl", nil)
+		})
 		// Login Route
 		v1.POST("/login", s.Login)
 

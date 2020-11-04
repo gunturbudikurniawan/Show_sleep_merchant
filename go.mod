@@ -6,7 +6,7 @@ require (
 	github.com/badoux/checkmail v1.2.1
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.6.3
-	github.com/gunturbudikurniawan/show_sleep v0.0.0-20201028064548-8e987a883828
+	github.com/gunturbudikurniawan/show_sleep v0.0.0-20201028064548-8e987a883828 // indirect
 	github.com/jinzhu/gorm v1.9.16
 	github.com/joho/godotenv v1.3.0
 	github.com/kr/fs v0.1.0 // indirect

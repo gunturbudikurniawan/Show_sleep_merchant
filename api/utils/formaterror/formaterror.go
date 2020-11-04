@@ -26,7 +26,7 @@ func FormatError(errString string) map[string]string {
 		errorMessages["Incorrect_password"] = "Incorrect Password"
 	}
 	if strings.Contains(errString, "record not found") {
-		errorMessages["No_record"] = "No Record Found"
+		errorMessages["No_record"] = "User Belum Terdaftar"
 	}
 
 	if strings.Contains(errString, "double like") {

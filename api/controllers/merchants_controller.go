@@ -272,3 +272,35 @@ func (server *Server) CreateOnlineSales(c *gin.Context) {
 		"response": salesOnlineCreated,
 	})
 }
+
+func (server *Server) ShowSleep(c *gin.Context) {
+	type ShowSleep struct {
+		models.Onlinesales1
+		models.Subscribers1
+		models.SavedOrder
+		models.Sales1
+	}
+	result := []ShowSleep{}
+	err := server.DB.Table("server").
+		Select("server.* , company.*").
+		Joins("left join company on server.company = company.id ").
+		Scan(&result).Error
+
+	if err != nil {
+		// logserver.Debugf("Error when looking up servers, the error is '%v'", err)
+		res := gin.H{
+			"status": "404",
+			"error":  "No server list found",
+		}
+		c.JSON(404, res)
+		return
+	}
+	content := gin.H{
+		"status":  "200",
+		"success": true,
+		"servers": result,
+	}
+
+	c.Writer.Header().Set("Content-Type", "application/json")
+	c.JSON(200, content)
+}
